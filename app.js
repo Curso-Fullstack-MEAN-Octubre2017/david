@@ -5,10 +5,12 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-//var sample = require('./routes/sample');
+const router = express.Router();
+
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost/petStore', { useMongoClient: true });
 
 var app = express();
-
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
@@ -21,10 +23,17 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-//// Nuevas Rutas van aqui:
-//app.use('/sample', sample);
+require("./tests/customer_crud_tests.js");
 
-//Front End
+//// Nuevas Rutas van aqui:
+app.use('/api', require('./routes/sample')(router));
+//const customers = require('./routes/customers')(router);
+//const pets = require('./routes/pets')(router);
+
+//app.use('/api', require('./routes/customers')(router));
+//app.use('/api', require('./routes/pets')(router));
+
+//Front End: SPA with Angular + HTML5 urls
 app.all("*", (req, res) => {
 res.sendFile(path.resolve("public/index.html"));
 })

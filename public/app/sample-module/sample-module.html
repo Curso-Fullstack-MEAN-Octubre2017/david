@@ -1,1 +1,88 @@
-<div>This is the Sample Module Template</div>
+<style>
+
+#grandfather{
+	width:100%;
+	margin:0 auto;
+
+}
+
+
+#son{
+	width:50%;
+	margin:0 auto;
+
+
+}
+
+#grandson{
+	width:40%;
+	margin:0 auto;
+
+
+}
+
+#grandson #butt{
+	width:60%;
+	margin:0 auto;
+
+}
+
+#grandson h1{
+	margin:0 auto;
+	width:45%;
+	padding-left:40px;
+	color:grey;
+
+
+
+}
+
+.list{
+	padding-top:10px;
+	padding-bottom:10px;
+	margin-left:30px;
+	border:2px solid blue;
+	background-color:lightblue;
+
+}
+
+.list li{
+	font-family:arial;
+
+
+}
+
+#butt button{
+margin-left:40px;
+background-color:skyblue;
+border-style:outset;
+border-color:blue;
+}
+
+#butt button:active{
+color:white;
+}
+
+</style>
+
+
+<div id="grandfather">
+<div id="son">
+<div id="grandson">
+<h1>Clientes</h1>
+<ul class="list" ng-repeat="row in sampleData">
+
+<!--<li>ID: {{row._id}}</li>-->	
+	<li><b>DNI:</b> {{row.dni}}</li>
+	<li><b>Nombre:</b> {{row.firstName}}</li>
+	<li><b>Apellidos:</b> {{row.lastName}}</li>
+	<li><b>Tel&eacute;fono:</b> {{row.phone}}</li>
+	<li><b>E-mail:</b> {{row.email}}</li>
+	<li><b>Notas:</b> {{row.note}}</li>
+</ul>
+<div id="butt"><button ng-click="$http.get('/prueba')">Nuevo cliente</button></div>
+</div>
+</div>
+</div>
+
+

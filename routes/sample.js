@@ -1,9 +1,17 @@
-var express = require('express');
-var router = express.Router();
+const Customer = require('../models/customer');
 
-/* Sample REST service  (placeholder) */
-router.get('/sample', function(req, res, next) {
-  // TODO
-});
+module.exports = (router) => {
 
-module.exports = router;
+	/* Sample REST service  (placeholder) */
+	router.get('/sample', function(req, res, next) {
+		Customer.find({}, (err, customers) => {
+			if (err) {
+				res.send(err);
+			} else {
+				res.json(customers);
+			}
+		}).sort({'_id' : -1});
+	});
+	
+	return router;
+}

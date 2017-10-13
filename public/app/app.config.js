@@ -8,7 +8,7 @@ angular.module('petStore')
         $locationProvider.html5Mode({ enabled: true });
         $routeProvider
             .when("/",{
-                template: "Pet Store Demo (Hello World) <a ng-href='sample'>Sample Module</a>"
+                template: "Acceder a los clientes: <a ng-href='sample'>Listado de clientes</a>"
             })
             .when("/sample",{
                 template: "<sample-module></sample-module>"
