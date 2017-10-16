@@ -52,6 +52,10 @@
 
 }
 
+.list:active{
+background-color:cyan;
+}
+
 #butt button{
 margin-left:40px;
 background-color:skyblue;
@@ -63,15 +67,37 @@ border-color:blue;
 color:white;
 }
 
+#box{
+text-decoration:none;
+color:black;
+}
+
+#for{
+margin-left:28px;
+margin-top:10px;
+margin-bottom:10px;
+}
+
+
 </style>
 
 
 <div id="grandfather">
 <div id="son">
 <div id="grandson">
-<h1>Clientes</h1>
-<ul class="list" ng-repeat="row in sampleData">
 
+<h1>Clientes</h1>
+
+<form id="for">
+
+
+<input id="sea" type="search"></input>
+<input type="submit" value="Buscar"></input>
+
+</form>
+
+<ul class="list" ng-repeat="row in sampleData">
+<a id="box" href="#">
 <!--<li>ID: {{row._id}}</li>-->	
 	<li><b>DNI:</b> {{row.dni}}</li>
 	<li><b>Nombre:</b> {{row.firstName}}</li>
@@ -79,8 +105,10 @@ color:white;
 	<li><b>Tel&eacute;fono:</b> {{row.phone}}</li>
 	<li><b>E-mail:</b> {{row.email}}</li>
 	<li><b>Notas:</b> {{row.note}}</li>
+	</a>
 </ul>
-<div id="butt"><button ng-click="$http.get('/prueba')">Nuevo cliente</button></div>
+
+<div id="butt"><button ng-click="">Nuevo cliente</button></div>
 </div>
 </div>
 </div>
