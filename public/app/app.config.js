@@ -11,11 +11,10 @@ angular.module('petStore')
             template: "Acceder a los clientes: <a ng-href='customers'>Listado de clientes</a>"
         })
         .when("/customers",{
-            template: "<sample-module></sample-module>"
+            template: "<customers-module></customers-module>"
         })
-
-        .when("/customer",{
-            templateUrl: "./app/sample-module/customer.html"
+        .when("/customers/:id",{
+            template: "<customer-details-module></customer-details-module>"
         })
 
         .otherwise({

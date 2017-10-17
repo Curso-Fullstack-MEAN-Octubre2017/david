@@ -96,9 +96,11 @@ margin-bottom:10px;
 
 </form>
 
-<ul class="list" ng-repeat="row in sampleData">
-<a id="box" href="#">
-<!--<li>ID: {{row._id}}</li>-->	
+<ul class="list" ng-repeat="row in customers">
+<a id="box" ng-click="" ng-href="customers/{{row._id}}">
+<!--<li>ID: {{row._id}}</li>-->
+
+
 	<li><b>DNI:</b> {{row.dni}}</li>
 	<li><b>Nombre:</b> {{row.firstName}}</li>
 	<li><b>Apellidos:</b> {{row.lastName}}</li>

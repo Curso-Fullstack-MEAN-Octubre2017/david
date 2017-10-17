@@ -5,6 +5,8 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+
+
 const router = express.Router();
 
 var mongoose = require('mongoose');
@@ -26,11 +28,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 require("./tests/customer_crud_tests.js");
 
 //// Nuevas Rutas van aqui:
-app.use('/api', require('./routes/sample')(router));
-//const customers = require('./routes/customers')(router);
-//const pets = require('./routes/pets')(router);
-
-//app.use('/api', require('./routes/customers')(router));
+app.use('/api', require('./routes/customers')(router));
 //app.use('/api', require('./routes/pets')(router));
 
 //Front End: SPA with Angular + HTML5 urls

@@ -1,0 +1,13 @@
+<h1>Cliente: {{customer.firstName}} {{customer.lastName}} ({{customer._id}})</h1>
+
+<li><b>DNI:</b> <input type="text" ng-model="customer.dni" ></li>
+<li><b>Nombre:</b> <input type="text" ng-model="customer.firstName" ></li>
+<li><b>Apellidos:</b> <input type="text" ng-model="customer.lastName" ></li>
+<li><b>Tel&eacute;fono:</b> <input type="text" ng-model="customer.phone" ></li>
+<li><b>E-mail:</b> <input type="text" ng-model="customer.email" ></li>
+<li><b>Notas:</b> <input type="text" ng-model="customer.note" ></li>
+<button ng-click="update()">Actualizar</button>
+<button ng-click="otraFuncion()">otraFuncion()</button>
+
+
+
