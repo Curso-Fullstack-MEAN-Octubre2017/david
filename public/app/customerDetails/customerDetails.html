@@ -6,8 +6,20 @@
 <li><b>Tel&eacute;fono:</b> <input type="text" ng-model="customer.phone" ></li>
 <li><b>E-mail:</b> <input type="text" ng-model="customer.email" ></li>
 <li><b>Notas:</b> <input type="text" ng-model="customer.note" ></li>
+
+<h2>Mascotas de {{customer.firstName}} {{customer.lastName}}</h2>
+
+<li><b>Chip:</b> <input type="text" ng-model="pet.chip" ></li>
+<li><b>Name:</b> <input type="text" ng-model="pet.name" ></li>
+<li><b>Date of birth:</b> <input type="text" ng-model="pet.date"></li>
+<li><b>Photo:</b> <input type="text" ng-model="pet.photo" ></li>
+<li><b>Breed:</b> <input type="text" ng-model="pet.breed" ></li>
+<li><b>Race:</b> <input type="text" ng-model="pet.race" ></li>
+<li><b>Description:</b> <input type="text" ng-model="pet.description" ></li>
+<li><b>Owner:</b> <input type="text" value="{{customer._id}}" disabled="true" style="width:200px"></li>
+<br>
 <button ng-click="update()">Actualizar</button>
-<button ng-click="otraFuncion()">otraFuncion()</button>
+<button ng-click="save()">Nuevo</button>
 
 
 

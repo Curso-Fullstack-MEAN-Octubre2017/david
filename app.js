@@ -29,7 +29,7 @@ require("./tests/customer_crud_tests.js");
 
 //// Nuevas Rutas van aqui:
 app.use('/api', require('./routes/customers')(router));
-//app.use('/api', require('./routes/pets')(router));
+app.use('/api', require('./routes/pets')(router));
 
 //Front End: SPA with Angular + HTML5 urls
 app.all("*", (req, res) => {

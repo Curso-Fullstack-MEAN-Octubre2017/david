@@ -29,11 +29,11 @@ module.exports = (router) => {
 	});
 
 	router.put('/customers/:id', function(req, res, next) {
-		//		res.sendStatus(300);
+		console.log("put /customers/:id")
 
 		var id = req.params.id;
 
-		var custo = {
+		var customerDetails = {
 			dni : req.body.dni,
 			firstName : req.body.firstName,
 			lastName : req.body.lastName,
@@ -45,12 +45,12 @@ module.exports = (router) => {
 
 
 		Customer.findByIdAndUpdate(id, {
-			dni : custo.dni,
-			firstName : custo.firstName,
-			lastName : custo.lastName,
-			phone : custo.phone,
-			email : custo.email,
-			note : custo.note
+			dni : customerDetails.dni,
+			firstName : customerDetails.firstName,
+			lastName : customerDetails.lastName,
+			phone : customerDetails.phone,
+			email : customerDetails.email,
+			note : customerDetails.note
 		}, (err, customer) => {
 
 			if (err) {
@@ -67,8 +67,34 @@ module.exports = (router) => {
 	//
 	});
 
-	router.post('/customers/:id', function(req, res, next) {
-		res.sendStatus(300);
+	router.post('/customers', function(req, res, next) {
+		console.log("post /customers")
+		
+		var customer = new Customer({
+				dni : req.body.dni,
+				firstName : req.body.firstName,
+				lastName : req.body.lastName,
+				phone : req.body.phone,
+				email : req.body.email,
+				note : req.body.note
+			});
+		
+		console.log("Insertando Customer", customer);
+		
+		
+
+		customer.save((err) => {
+			
+			if(err) {
+				console.error(err);
+				
+			} else {
+				
+				res.json(customer);
+				
+			}
+			
+		});
 	});
 
 
