@@ -67,7 +67,7 @@ border-color:blue;
 color:white;
 }
 
-#box{
+.box{
 text-decoration:none;
 color:black;
 }
@@ -97,7 +97,7 @@ margin-bottom:10px;
 </form>
 
 <ul class="list" ng-repeat="row in customers">
-<a id="box" ng-click="" ng-href="customers/{{row._id}}">
+<a class="box" ng-click="" ng-href="customers/{{row._id}}">
 <!--<li>ID: {{row._id}}</li>-->
 
 
@@ -107,8 +107,25 @@ margin-bottom:10px;
 	<li><b>Tel&eacute;fono:</b> {{row.phone}}</li>
 	<li><b>E-mail:</b> {{row.email}}</li>
 	<li><b>Notas:</b> {{row.note}}</li>
+
 	</a>
+
 </ul>
+
+<ul class="list" ng-repeat="raw in pets">
+<a class="box" ng-href="customers/{{row._id}}">
+<li><b>Chip:</b>{{raw.chip}}</li>
+<li><b>Name:</b>{{raw.name}}</li>
+<li><b>Date of birth:</b>{{raw.date}}</li>
+<li><b>Photo:</b>{{raw.photo}}</li>
+<li><b>Breed:</b>{{raw.breed}}</li>
+<li><b>Race:</b>{{raw.race}}</li>
+<li><b>Description:</b>{{raw.description}}</li>
+<li><b>Owner:</b>{{raw.owner}}</li>
+</a>
+
+</ul>
+
 
 <div id="butt"><a ng-href="customers/new"><button>Nuevo cliente</button></a></div>
 </div>

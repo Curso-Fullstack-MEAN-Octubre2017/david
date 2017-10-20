@@ -15,8 +15,19 @@ angular.module('customerDetailsModule')
             	console.log("GET /api/customers/id response:", response.data);
             	$scope.customer = response.data;
             });
+            
+            $http.get("/api/customers/" + $routeParams.id + "/pets").then(function(response){
+            	console.log("GET /api/customers/id/pets response:", response.data);
+
+            	$scope.pet = response.data;
+            	console.log("pet tiene: ", $scope.pet);
+
+            });
+            
+            
         	
         	$scope.update = function(){
+        		
 				console.log("Guardando ", $scope.customer);
         		$http.put("/api/customers/" + $routeParams.id, $scope.customer).then(
         				function(response) {
@@ -27,10 +38,11 @@ angular.module('customerDetailsModule')
         				}
         		);
         		
+        		var response = {};
         		
-        		
+
 				console.log("Guardando ", $scope.pet);
-        		$http.put("/api/customers/" + $routeParams.id + "pets", $scope.pet).then(
+        		$http.put("/api/pets/" + $routeParams.id + 'pets', $scope.pet).then(
         				function(response) {
         					console.log("OK Response:", response);
         				},
@@ -43,9 +55,9 @@ angular.module('customerDetailsModule')
         	
         	
         	$scope.save = function(){
-				console.log("Insertando ", $scope.customer);
+				console.log("Insertando customer", $scope.customer);
 
-        		$http.post("/api/customers/" + $routeParams.id + "pets", $scope.customer).then(
+        		$http.post("/api/customers/" + $routeParams.id, $scope.customer).then(
         				function(response) {
         					console.log("OK Response:", response);
         					$scope.customer = response.data;
@@ -55,16 +67,16 @@ angular.module('customerDetailsModule')
         				}
         		);
         		
-				console.log("Insertando ", $scope.pet);
-        		$http.post("/api/pets", $scope.pet).then(
-        				function(response) {
-        					console.log("OK Response:", response);
-        					$scope.pet = response.data;
-        				},
-        				function(response) {
-        					console.log("KO Response:", response);
-        				}
-        		);
+//				console.log("Insertando pet", $scope.pet);
+//        		$http.post("/api/customers/" + $routeParams.id + "/pets", $scope.pet).then(
+//        				function(response) {
+//        					console.log("OK Response:", response);
+//        					$scope.pet = response.data;
+//        				},
+//        				function(response) {
+//        					console.log("KO Response:", response);
+//        				}
+//        		);
         		
         	}; 
         	

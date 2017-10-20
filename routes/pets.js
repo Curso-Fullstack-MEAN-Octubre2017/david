@@ -6,19 +6,26 @@ module.exports = (router) => {
 
 
 	router.get('/customers/:id/pets', function(req, res, next) {
-		var id = req.params.id;
-		Pet.findById(id, (err, pet) => {
+//owner : "59e878351592760b9cdb7114"
+//name : "animal"
+
+		Pet.find({owner: "59e9dbdf8fcbf92ee2060c53"}, (err, pet) => {
+			
 			if (err) {
 				console.error(err);
 
+
 			} else {
-				res.json(pet);
+
+				res.json(pet[0]);
+
+
 
 			}
 		});
 	});
 
-	router.put('/customers/:id/pets', function(req, res, next, $routeParams) {
+	router.put('/customers/:id', function(req, res, next, $routeParams) {
 		console.log("put pet /customers/:id")
 
 		var id = req.params.id;

@@ -12,6 +12,13 @@ angular.module('customersModule')
             	console.log(response.data);
             	$scope.customers = response.data;
             });
+            
+            $http.get("/api/customers").then(function(response){
+            	console.log(response.data);
+            	$scope.pets = response.data;
+            });
+            
+            
         }
     });
 

@@ -7,7 +7,7 @@ var Schema = mongoose.Schema;
 var petSchema = new Schema({
   chip:  {type: String, required:true},
   name: String,
-  date: Date,
+  date: String,
   photo: String,
   breed: String,
   race: String,

@@ -67,7 +67,7 @@ module.exports = (router) => {
 	//
 	});
 
-	router.post('/customers', function(req, res, next) {
+	router.post('/customers/new', function(req, res, next) {
 		console.log("post /customers")
 		
 		var customer = new Customer({
