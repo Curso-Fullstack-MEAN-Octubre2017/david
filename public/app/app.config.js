@@ -16,6 +16,10 @@ angular.module('petStore')
         .when("/customers/:id",{
             template: "<customer-details-module></customer-details-module>"
         })
+        
+        .when("/customers/:id/pets/:id",{
+            templateUrl: "/app/petDetails/petDetails.html"
+        })
 
         .otherwise({
             template: "<h1>Not Found</h1>"

@@ -25,6 +25,7 @@ angular.module('customerDetailsModule')
             });
             
             
+            
         	
         	$scope.update = function(){
         		

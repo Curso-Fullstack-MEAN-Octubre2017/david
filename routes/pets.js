@@ -6,24 +6,44 @@ module.exports = (router) => {
 
 
 	router.get('/customers/:id/pets', function(req, res, next) {
-//owner : "59e878351592760b9cdb7114"
-//name : "animal"
-
-		Pet.find({owner: "59e9dbdf8fcbf92ee2060c53"}, (err, pet) => {
-			
-			if (err) {
-				console.error(err);
-
-
-			} else {
-
-				res.json(pet[0]);
+		//owner : "59e878351592760b9cdb7114"
+		//name : "animal"
+				var id = req.params.id;
+				Pet.find({owner: id},(err, pet) => {
+					
+					if (err) {
+						console.error(err);
 
 
+					} else {
 
-			}
-		});
-	});
+						res.json(pet);
+
+
+
+					}
+				});
+			});
+	
+	router.get('/customers/:id/pets/:idPet', function(req, res, next) {
+		//owner : "59e878351592760b9cdb7114"
+		//name : "animal"
+		var idPet = req.params.idPet;
+				Pet.findById(idPet,(err, pet) => {
+					
+					if (err) {
+						console.error(err);
+
+
+					} else {
+
+						res.json(pet);
+
+
+
+					}
+				});
+			});
 
 	router.put('/customers/:id', function(req, res, next, $routeParams) {
 		console.log("put pet /customers/:id")

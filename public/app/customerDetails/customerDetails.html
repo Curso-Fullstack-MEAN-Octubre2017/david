@@ -2,21 +2,50 @@
 
 .table2{
 border:1px solid silver;
+width:80%;
+margin:0 auto;
 }
 
 .row1{
 border:1px solid silver;
+text-decoration:none;
+color:green;
+
 }
 
 .row2{
 border:1px solid silver;
+font-family:arial;
+
 }
+
+.row1 .row2{
+text-align:center;
+}
+
+#updateButton{
+margin-bottom:20px;
+margin-top:10px;
+}
+
+#contenedorPadre{
+margin:0 auto;
+}
+
+.row1#animals:hover > .row2{
+background-color:lightgreen;
+}
+
+.table2 { display:table; }
+.row1{ display:table-row; }
+.row2 { display:table-cell; }
+
 
 </style>
 
 
-
-<h1>Cliente: {{customer.firstName}} {{customer.lastName}} ({{customer._id}})</h1>
+<div id="contenedorPadre">
+<h1 class="margin">Cliente: {{customer.firstName}} {{customer.lastName}} ({{customer._id}})</h1>
 
 <li><b>DNI:</b> <input type="text" ng-model="customer.dni" ></li>
 <li><b>Nombre:</b> <input type="text" ng-model="customer.firstName" ></li>
@@ -31,20 +60,36 @@ border:1px solid silver;
 
 <br>
  -->
-<button ng-click="update()">Actualizar</button>
+<button ng-click="update()" id="updateButton">Actualizar</button>
 <!--<button ng-click="save()">Nuevo</button>-->
+</div>
 
-<table class="table2">
+<div class="table2">
 
-<tr class="row1"><td class="row2"><b>Chip:</b> {{pet.chip}}</td></tr>
-<tr class="row1"><td class="row2"><b>Name:</b> {{pet.name}}</td></tr>
-<tr class="row1"><td class="row2"><b>Date of birth:</b> {{pet.date}}</td></tr>
-<tr class="row1"><td class="row2"><b>Photo:</b> {{pet.photo}}</td></tr>
-<tr class="row1"><td class="row2"><b>Breed:</b> {{pet.breed}}</td></tr>
-<tr class="row1"><td class="row2"><b>Race:</b> {{pet.race}}</td></tr>
-<tr class="row1"><td class="row2"><b>Description:</b> {{pet.description}}</td></tr>
-<tr class="row1"><td class="row2"><b>Owner:</b> {{customer._id}}</td></tr>
+<div class="row1">
+<div class="row2"><b>Chip</b></div>
+<div class="row2"><b>Name</b></div>
+<div class="row2"><b>Date of birth</b></div>
+<div class="row2"><b>Photo</b></div>
+<div class="row2"><b>Breed</b></div>
+<div class="row2"><b>Race</b></div>
+<div class="row2"><b>Description</b></div>
+<div class="row2"><b>Owner</b></div>
+</div>
 
-</table>
+
+<a id="animals" class="row1" ng-repeat="pets in pet" ng-href="customers/{{customer._id}}/pets/{{pets._id}}">
+
+<div class="row2">{{pets.chip}}</div>
+<div class="row2">{{pets.name}}</div>
+<div class="row2">{{pets.date}}</div>
+<div class="row2">{{pets.photo}}</div>
+<div class="row2">{{pets.breed}}</div>
+<div class="row2">{{pets.race}}</div>
+<div class="row2">{{pets.description}}</div>
+<div class="row2">{{customer._id}}</div>
+
+<a>
 
 
+</div>
