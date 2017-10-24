@@ -1,17 +1,128 @@
-<html>
-<head>
-</head>
-<body>
-<h1>Wola</h1>
-<ul ng-repeat="pets in pet">
-<li><input type="text" ng-model="pets.chip" ></li>
-<li><input type="text" ng-model="pets.name" ></li>
-<li><input type="text" ng-model="pets.date" ></li>
-<li><input type="text" ng-model="pets.photo" ></li>
-<li><input type="text" ng-model="pets.breed" ></li>
-<li><input type="text" ng-model="pets.race" ></li>
-<li><input type="text" ng-model="pets.description" ></li>
-<li><input type="text" ng-model="customer._id" ></li>
-</ul>
-</body>
-</html>
+<style>
+
+body{
+background-color:lightyellow;
+}
+
+.table2{
+border:1px solid silver;
+width:80%;
+margin:0 auto;
+}
+
+.row1{
+border:1px solid silver;
+text-decoration:none;
+color:green;
+
+}
+
+.row2{
+border:1px solid silver;
+font-family:arial;
+
+}
+
+.row1 .row2{
+text-align:center;
+}
+
+#updateButton{
+margin-bottom:20px;
+margin-top:10px;
+
+}
+
+#contenedorPadre{
+width:30%;
+margin:0 auto;
+
+}
+
+.row1#animals:hover > .row2{
+background-color:lightgreen;
+}
+
+
+label{
+width:300px;
+}
+
+input{
+margin-top:10px;
+margin-bottom:5px;
+margin-left:100px;
+}
+
+button{
+width:150px;
+margin-left:60px;
+display:block;
+}
+
+.labels{
+float:left;
+clear:left;
+
+}
+
+.inputs{
+float:right;
+margin-left:-60px;
+margin-top:-10px;
+margin-right:110px;
+
+}
+
+.labels, .inputs{
+height:20px;
+margin-bottom:30px;
+}
+
+.title{
+width:50%;
+margin-left:38%;
+color:green;
+margin-bottom:25px;
+text-decoration:underline;
+
+}
+
+.title h2{
+
+}
+
+.table2 { display:table; }
+.row1{ display:table-row; }
+.row2 { display:table-cell; }
+
+
+
+</style>
+
+
+
+
+<div id="contenedorPadre">
+
+
+<div class="labels"><label><b>Chip:</b><label></div><div class="inputs"><input type="text" value={{pet.chip}} ></div>
+<div class="labels"><label><b>Nombre:</b><label></div><div class="inputs"><input type="text" value={{pet.name}} ></div>
+<div class="labels"><label><b>Fecha N.:</b><label></div><div class="inputs"><input type="text" value={{pet.date}} ></div>
+<div class="labels"><label><b>Foto:</b><label></div><div class="inputs"><input type="text" value={{pet.photo}} ></div>
+<div class="labels"><label><b>Especie:</b><label></div><div class="inputs"><input type="text" value={{pet.breed}} ></div>
+<div class="labels"><label><b>Raza:</b><label></div><div class="inputs"><input type="text" value={{pet.race}} ></div>
+<div class="labels"><label><b>Datos:</b><label></div><div class="inputs"><input type="text" value={{pet.description}} ></div>
+
+<!--
+<h2>Mascotas de {{customer.firstName}} {{customer.lastName}}</h2>
+
+
+<br>
+ -->
+ <div>
+<button ng-click="updatepet()" id="updateButton">Actualizar</button>
+</div>
+<!--<button ng-click="save()">Nuevo</button>-->
+</div>
+

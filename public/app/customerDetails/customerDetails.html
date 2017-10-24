@@ -1,5 +1,9 @@
 <style>
 
+body{
+background-color:lightyellow;
+}
+
 .table2{
 border:1px solid silver;
 width:80%;
@@ -26,14 +30,66 @@ text-align:center;
 #updateButton{
 margin-bottom:20px;
 margin-top:10px;
+
 }
 
 #contenedorPadre{
+width:30%;
 margin:0 auto;
+
 }
 
 .row1#animals:hover > .row2{
 background-color:lightgreen;
+}
+
+
+label{
+width:300px;
+}
+
+input{
+margin-top:10px;
+margin-bottom:5px;
+margin-left:100px;
+}
+
+button{
+width:150px;
+margin-left:60px;
+display:block;
+}
+
+.labels{
+float:left;
+clear:left;
+
+}
+
+.inputs{
+float:right;
+margin-left:-60px;
+margin-top:-10px;
+margin-right:110px;
+
+}
+
+.labels, .inputs{
+height:20px;
+margin-bottom:30px;
+}
+
+.title{
+width:50%;
+margin-left:38%;
+color:green;
+margin-bottom:25px;
+text-decoration:underline;
+
+}
+
+.title h2{
+
 }
 
 .table2 { display:table; }
@@ -41,18 +97,21 @@ background-color:lightgreen;
 .row2 { display:table-cell; }
 
 
+
 </style>
 
 
-<div id="contenedorPadre">
-<h1 class="margin">Cliente: {{customer.firstName}} {{customer.lastName}} ({{customer._id}})</h1>
 
-<li><b>DNI:</b> <input type="text" ng-model="customer.dni" ></li>
-<li><b>Nombre:</b> <input type="text" ng-model="customer.firstName" ></li>
-<li><b>Apellidos:</b> <input type="text" ng-model="customer.lastName" ></li>
-<li><b>Tel&eacute;fono:</b> <input type="text" ng-model="customer.phone" ></li>
-<li><b>E-mail:</b> <input type="text" ng-model="customer.email" ></li>
-<li><b>Notas:</b> <input type="text" ng-model="customer.note" ></li>
+
+<div id="contenedorPadre">
+
+
+<div class="labels"><label><b>DNI:</b><label></div><div class="inputs"><input type="text" ng-model="customer.dni" ></div>
+<div class="labels"><label><b>Nombre:</b><label></div><div class="inputs"><input type="text" ng-model="customer.firstName" ></div>
+<div class="labels"><label><b>Apellidos:</b><label></div><div class="inputs"><input type="text" ng-model="customer.lastName" ></div>
+<div class="labels"><label><b>Tel&eacute;fono:</b><label></div><div class="inputs"><input type="text" ng-model="customer.phone" ></div>
+<div class="labels"><label><b>E-mail:</b><label></div><div class="inputs"><input type="text" ng-model="customer.email" ></div>
+<div class="labels"><label><b>Notas:</b><label></div><div class="inputs"><input type="text" ng-model="customer.note" ></div>
 
 <!--
 <h2>Mascotas de {{customer.firstName}} {{customer.lastName}}</h2>
@@ -60,7 +119,9 @@ background-color:lightgreen;
 
 <br>
  -->
+ <div>
 <button ng-click="update()" id="updateButton">Actualizar</button>
+</div>
 <!--<button ng-click="save()">Nuevo</button>-->
 </div>
 

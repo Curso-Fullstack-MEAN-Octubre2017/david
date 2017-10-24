@@ -20,7 +20,6 @@ module.exports = (router) => {
 						res.json(pet);
 
 
-
 					}
 				});
 			});
@@ -28,6 +27,7 @@ module.exports = (router) => {
 	router.get('/customers/:id/pets/:idPet', function(req, res, next) {
 		//owner : "59e878351592760b9cdb7114"
 		//name : "animal"
+		var id = req.params.id;
 		var idPet = req.params.idPet;
 				Pet.findById(idPet,(err, pet) => {
 					
@@ -36,7 +36,7 @@ module.exports = (router) => {
 
 
 					} else {
-
+						console.log("ESTE ES EL PET DEVUELTO:", pet)
 						res.json(pet);
 
 

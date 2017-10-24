@@ -18,7 +18,7 @@ angular.module('petStore')
         })
         
         .when("/customers/:id/pets/:id",{
-            templateUrl: "/app/petDetails/petDetails.html"
+            template: "<pet-details-module></pet-details-module>"
         })
 
         .otherwise({

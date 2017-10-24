@@ -39,19 +39,6 @@ angular.module('customerDetailsModule')
         				}
         		);
         		
-        		var response = {};
-        		
-
-				console.log("Guardando ", $scope.pet);
-        		$http.put("/api/pets/" + $routeParams.id + 'pets', $scope.pet).then(
-        				function(response) {
-        					console.log("OK Response:", response);
-        				},
-        				function(response) {
-        					console.log("KO Response:", response);
-        				}
-        		);
-        		
         	};            
         	
         	
