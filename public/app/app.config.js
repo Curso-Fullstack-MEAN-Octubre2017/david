@@ -17,7 +17,10 @@ angular.module('petStore')
             template: "<customer-details-module></customer-details-module>"
         })
         
-        .when("/customers/:id/pets/:id",{
+        .when("/customers/:id/pets/:idPet",{
+            template: "<pet-details-module></pet-details-module>"
+        })
+        .when("/customers/:id/pets/new",{
             template: "<pet-details-module></pet-details-module>"
         })
 

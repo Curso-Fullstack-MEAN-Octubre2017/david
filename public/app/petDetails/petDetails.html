@@ -27,7 +27,7 @@ font-family:arial;
 text-align:center;
 }
 
-#updateButton{
+.updateButton{
 margin-bottom:20px;
 margin-top:10px;
 
@@ -100,29 +100,44 @@ text-decoration:underline;
 
 </style>
 
+<script>
 
+var path = window.location.pathname;
+var split = path.split("/");
+
+if (split[4] == "new"){
+
+document.getElementById("uptton").style.display = "none";
+
+} else{
+document.getElementById("newtton").style.display = "none";
+
+}
+
+</script>
 
 
 <div id="contenedorPadre">
 
 
-<div class="labels"><label><b>Chip:</b><label></div><div class="inputs"><input type="text" value={{pet.chip}} ></div>
-<div class="labels"><label><b>Nombre:</b><label></div><div class="inputs"><input type="text" value={{pet.name}} ></div>
-<div class="labels"><label><b>Fecha N.:</b><label></div><div class="inputs"><input type="text" value={{pet.date}} ></div>
-<div class="labels"><label><b>Foto:</b><label></div><div class="inputs"><input type="text" value={{pet.photo}} ></div>
-<div class="labels"><label><b>Especie:</b><label></div><div class="inputs"><input type="text" value={{pet.breed}} ></div>
-<div class="labels"><label><b>Raza:</b><label></div><div class="inputs"><input type="text" value={{pet.race}} ></div>
-<div class="labels"><label><b>Datos:</b><label></div><div class="inputs"><input type="text" value={{pet.description}} ></div>
-
-<!--
-<h2>Mascotas de {{customer.firstName}} {{customer.lastName}}</h2>
+<div class="labels"><label><b>Chip:</b><label></div><div class="inputs"><input type="text" ng-model="pet.chip" ></div>
+<div class="labels"><label><b>Nombre:</b><label></div><div class="inputs"><input type="text" ng-model="pet.name" ></div>
+<div class="labels"><label><b>Fecha N.:</b><label></div><div class="inputs"><input type="text" ng-model="pet.date" ></div>
+<div class="labels"><label><b>Foto:</b><label></div><div class="inputs"><input type="text" ng-model="pet.photo" ></div>
+<div class="labels"><label><b>Especie:</b><label></div><div class="inputs"><input type="text" ng-model="pet.breed" ></div>
+<div class="labels"><label><b>Raza:</b><label></div><div class="inputs"><input type="text" ng-model="pet.race" ></div>
+<div class="labels"><label><b>Datos:</b><label></div><div class="inputs"><input type="text" ng-model="pet.description" ></div>
 
 
-<br>
- -->
+ 
+ 
+
  <div>
-<button ng-click="updatepet()" id="updateButton">Actualizar</button>
+<button ng-click="updatePet()" class="updateButton" id="uptton">Actualizar</button>
 </div>
-<!--<button ng-click="save()">Nuevo</button>-->
+ <div>
+<button ng-click="savePet()" class="updateButton" id="newtton">Insertar</button>
+</div>
+
 </div>
 

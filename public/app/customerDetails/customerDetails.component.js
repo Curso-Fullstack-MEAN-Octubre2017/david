@@ -45,7 +45,7 @@ angular.module('customerDetailsModule')
         	$scope.save = function(){
 				console.log("Insertando customer", $scope.customer);
 
-        		$http.post("/api/customers/" + $routeParams.id, $scope.customer).then(
+        		$http.post("/api/customers/new", $scope.customer).then(
         				function(response) {
         					console.log("OK Response:", response);
         					$scope.customer = response.data;

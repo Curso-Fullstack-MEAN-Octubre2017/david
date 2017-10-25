@@ -13,7 +13,10 @@ angular.module('petDetailsModule')
         	console.log(url[2]);
         	console.log(url[4]);
         	
-            $scope.pet = {};
+
+            
+
+
            
         	var response = {};
         	
@@ -21,46 +24,52 @@ angular.module('petDetailsModule')
 
 
             	$scope.pet = response.data;
-            	console.log("probandoooooooooooooo", $scope.pet);
 
 
             });
             
             
-    		var response = {};
+
     		
-    		
-    		
-    		$http.put("/api/pets/" + $routeParams.id + 'pets', $scope.pet).then(
-    				function(response) {
-    					console.log("OK Response:", response);
-    				},
-    				function(response) {
-    					console.log("KO Response:", response);
-    				}
-    		);
+        	$scope.updatePet = function(){
+        		
+				console.log("Guardando ", $scope.pet);
+				$http.put("/api/customers/" + url[2] + "/pets/" + url[4], $scope.pet).then(
+						function(response){
+
+        					console.log("OK Response:", response);
+        				},
+        				function(response) {
+        					console.log("KO Response:", response);
+        				}
+        		);
+        		
+        	};    
         	
-        	/*
-        	router.get('/customers/:id/pets/:idPet', function(req, res, next) {
-        		//owner : "59e878351592760b9cdb7114"
-        		//name : "animal"
-        		var idPet = req.params.idPet;
-        				Pet.findById(idPet,(err, pet) => {
-        					
-        					if (err) {
-        						console.error(err);
+        	
+        	
+        	$scope.savePet = function(){
 
 
-        					} else {
+/*
+        		$http.post("/api/customers/" + url[2] + "/pets", $scope.pet).then(
+        				function(response) {
+        					console.log("OK Response:", $scope.pet);
 
-        						res.json(pet);
+        				},
+        				function(response) {
+        					console.log("KO Response:", response);
+        				}
+        		)
+        		
+*/
+  alert("No funciona...");      		
+        		
+        		};
+    		
 
+        	
 
-
-        					}
-        				});
-        			});	           
-        	*/
       
         	
 

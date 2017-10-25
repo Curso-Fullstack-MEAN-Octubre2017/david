@@ -27,7 +27,7 @@ font-family:arial;
 text-align:center;
 }
 
-#updateButton{
+.updateButton{
 margin-bottom:20px;
 margin-top:10px;
 
@@ -92,10 +92,22 @@ text-decoration:underline;
 
 }
 
+.newPet{
+width:100%;
+margin:0 auto;
+}
+
 .table2 { display:table; }
 .row1{ display:table-row; }
 .row2 { display:table-cell; }
-
+.row3{
+width:40%;
+margin:0 auto;
+padding-top:10px;
+letter-spacing:4px;
+color:green;
+text-decoration:underline;
+}
 
 
 </style>
@@ -119,8 +131,24 @@ text-decoration:underline;
 
 <br>
  -->
+ 
+<script>
+
+if (window.location.href == "http://localhost:3000/customers/new"){
+document.getElementById("uptton").style.display = "none";
+
+} else{
+document.getElementById("newtton").style.display = "none";
+
+}
+
+</script>
+ 
  <div>
-<button ng-click="update()" id="updateButton">Actualizar</button>
+<button ng-click="update()" class="updateButton" id="uptton">Actualizar</button>
+</div>
+ <div>
+<button ng-click="save()" class="updateButton" id="newtton">Insertar</button>
 </div>
 <!--<button ng-click="save()">Nuevo</button>-->
 </div>
@@ -153,4 +181,13 @@ text-decoration:underline;
 <a>
 
 
+
+
+
+
 </div>
+
+
+<div class="row3"><a ng-href="customers/{{customer._id}}/pets/new"><b>Click aqu&iacute; para insertar una nueva mascota</b></a></div>
+
+
