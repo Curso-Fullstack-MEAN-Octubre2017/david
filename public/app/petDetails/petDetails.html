@@ -96,9 +96,48 @@ text-decoration:underline;
 .row1{ display:table-row; }
 .row2 { display:table-cell; }
 
+#volver1{
+position: absolute;
+left: 100px;
+top: 150px;
+}
 
+#volver2{
+position: absolute;
+left: 100px;
+top: 200px;
+}
+
+.volver{
+text-align:center;
+width:170px;
+background-color:tan;
+padding: 5px 5px 5px 5px;
+font-family:Arial;
+border-radius: 15px;
+
+}
+
+.volver a{
+text-decoration:none;
+color:black;
+}
 
 </style>
+
+
+
+
+
+
+<div id="volver1" class="volver">
+<a ng-href="/customers"><b>Volver a lista de clientes</b></a>
+</div>
+<div id="volver2" class="volver">
+<a ng-href="/customers/{{pet.owner}}"><b>Volver al due&ntilde;o de "{{pet.name}}"</b></a>
+</div>
+
+
 
 <script>
 
@@ -138,6 +177,11 @@ document.getElementById("newtton").style.display = "none";
  <div>
 <button ng-click="savePet()" class="updateButton" id="newtton">Insertar</button>
 </div>
+ <div>
+<button ng-click="deletePet()" class="updateButton" id="deltton">Borrar</button>
+</div>
+
+
 
 </div>
 

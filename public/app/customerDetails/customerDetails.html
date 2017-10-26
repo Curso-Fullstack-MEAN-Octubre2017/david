@@ -109,8 +109,37 @@ color:green;
 text-decoration:underline;
 }
 
+#volver1{
+position: absolute;
+left: 100px;
+top: 150px;
+text-align:center;
+width:170px;
+background-color:tan;
+padding: 5px 5px 5px 5px;
+font-family:Arial;
+color:lightorange;
+border-radius: 15px;
+}
+
+
+#volver1 a{
+text-decoration:none;
+color:black;
+}
+
+
 
 </style>
+
+
+
+
+
+
+<div id="volver1">
+<a ng-href="/customers"><b>Volver a lista de clientes</b></a>
+</div>
 
 
 
@@ -149,6 +178,10 @@ document.getElementById("newtton").style.display = "none";
 </div>
  <div>
 <button ng-click="save()" class="updateButton" id="newtton">Insertar</button>
+</div>
+
+ <div>
+<button ng-click="deleteCustomer()" class="updateButton" id="deltton">Borrar</button>
 </div>
 <!--<button ng-click="save()">Nuevo</button>-->
 </div>

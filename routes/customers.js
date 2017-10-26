@@ -1,4 +1,5 @@
 const Customer = require('../models/customer');
+const Pet = require('../models/pet');
 
 module.exports = (router) => {
 
@@ -29,7 +30,7 @@ module.exports = (router) => {
 	});
 
 	router.put('/customers/:id', function(req, res, next) {
-		console.log("put /customers/:id")
+
 
 		var id = req.params.id;
 
@@ -68,7 +69,7 @@ module.exports = (router) => {
 	});
 
 	router.post('/customers/new', function(req, res, next) {
-		console.log("post /customers")
+
 		
 		var customer = new Customer({
 				dni : req.body.dni,
@@ -79,7 +80,7 @@ module.exports = (router) => {
 				note : req.body.note
 			});
 		
-		console.log("Insertando Customer", customer);
+
 		
 		
 
@@ -91,6 +92,41 @@ module.exports = (router) => {
 			} else {
 				
 				res.json(customer);
+				
+			}
+			
+		});
+	});
+	
+	router.delete("/customers/:id", function(req, res, next) {
+		
+		var id = req.params.id;
+		
+		
+
+			Pet.deleteMany({owner:id}, (err, ret) =>{
+				
+				if(err) {
+					console.error(err);
+					
+				} else {
+					console.log("Las mascotas que coinciden con el criterio de busqueda han sido borradas: ", ret);
+					
+				}
+				
+				
+			});
+
+
+
+		
+		Customer.findByIdAndRemove(id, (err, ret) => {
+			
+			if(err) {
+				console.error(err);
+				
+			} else {
+				console.log("El customer con esta ID ha sido borrado: ", ret);
 				
 			}
 			

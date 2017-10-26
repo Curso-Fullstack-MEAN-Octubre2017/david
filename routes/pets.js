@@ -60,7 +60,7 @@ module.exports = (router) => {
 		var id = req.params.id;
 		var idPet = req.params.idPet;
 
-		console.log("VAMOS A PROBAR:", req.body.chip);
+
 
 		var petDetails = {
 				  chip: 		req.body.chip,
@@ -105,7 +105,7 @@ module.exports = (router) => {
 
 		var id= req.params.id;
 
-		var petDetails = new Pet({
+		var pet = new Pet({
 			  chip: 		req.body.chip,
 			  name: 		req.body.name,
 			  date: 		req.body.date,
@@ -116,7 +116,7 @@ module.exports = (router) => {
 			  owner: 		id
 			});
 		
-		console.log("Insertando Pet", pet);
+
 		
 		
 		pet.save((err) => {
@@ -132,6 +132,31 @@ module.exports = (router) => {
 			
 		});
 	});
+	
+	
+	router.delete("/customers/:id/pets/:idPet", function(req, res, next) {
+		
+		
+		var id = req.params.id;
+		var idPet = req.params.idPet;
+		
+
+		
+		Pet.findByIdAndRemove(idPet, (err, ret) => {
+		
+			if(err) {
+				console.error(err);
+		
+			} else {
+
+				console.log("El animal con esta ID ha sido borrado: ", ret);
+
+			}
+		
+		});
+	});
+
+
 
 
 	return router;
