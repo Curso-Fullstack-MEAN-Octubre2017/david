@@ -8,10 +8,7 @@ angular.module('petDetailsModule')
         controller: function($scope, $http, $routeParams, $location,$window) {
             console.log("Incializando petDetails", $routeParams.id);
             
-            var url = $location.path().split('/');
-            
-        	console.log(url[2]);
-        	console.log(url[4]);
+
         	
 
             
@@ -20,34 +17,39 @@ angular.module('petDetailsModule')
            
         	var response = {};
         	
-            $http.get("/api/customers/" + url[2] + "/pets/" + url[4]).then(function(response){
-
+           $http.get("/api/customers/" + $routeParams.id + "/pets/" + $routeParams.idPet).then(function(response){
 
             	$scope.pet = response.data;
-
 
             });
             
             
 
     		
-        	$scope.updatePet = function(){
+           $scope.updatePet = function(){
+        	   
         		if (window.confirm("Desea actualizar esta mascota?")){
         			
     				console.log("Guardando ", $scope.pet);
     				
     				$window.alert("La mascota ha sido actualizada");
     				
-    				$window.location.href="/customers/" + url[2];
+    				$window.location.href="/customers/" + $routeParams.id;
     				
-    				$http.put("/api/customers/" + url[2] + "/pets/" + url[4], $scope.pet).then(
+    				$http.put("/api/customers/" + $routeParams.id + "/pets/" + $routeParams.idPet, $scope.pet).then(
+    						
     						function(response){
 
             					console.log("OK Response:", response);
+            					
             				},
+            				
             				function(response) {
+            					
             					console.log("KO Response:", response);
+            					
             				}
+            				
             		);
         		}
 
@@ -64,15 +66,20 @@ angular.module('petDetailsModule')
     				
     				$window.alert("La mascota ha sido insertada");
     				
-    				$window.location.href="/customers/" + url[2];
+    				$window.location.href="/customers/" + $routeParams.id;
     				
-            		$http.post("/api/customers/" + url[2] + "/pets", $scope.pet).then(
+            		$http.post("/api/customers/" + $routeParams.id + "/pets", $scope.pet).then(
+            				
             				function(response) {
+            					
             					console.log("OK Response:", $scope.pet);
 
             				},
+            				
             				function(response) {
+            					
             					console.log("KO Response:", response);
+            					
             				}
             		)
         		}
@@ -81,7 +88,7 @@ angular.module('petDetailsModule')
         		
 		
         		
-        		};
+        	};
     		
 
             	$scope.deletePet = function(){
@@ -92,15 +99,20 @@ angular.module('petDetailsModule')
         				
         				$window.alert("La mascota ha sido borrada");
         				
-        				$window.location.href="/customers/" + url[2];
+        				$window.location.href="/customers/" + $routeParams.id;
         				
-        				$http.delete("/api/customers/" + url[2] + "/pets/" + url[4], $scope.pet).then(
+        				$http.delete("/api/customers/" + $routeParams.id + "/pets/" + $routeParams.idPet, $scope.pet).then(
+        						
         						function(response){
+        							
                 					console.log("KO Response:", response);
 
                 				},
+                				
                 				function(response) {
+                					
                 					console.log("OK Response:", response);
+                					
                 				}
                 		);
             			
@@ -108,11 +120,30 @@ angular.module('petDetailsModule')
             		
 
             		
-            	};    
+            	};   
+            	
+            	$scope.isNew = function() {
+            		return true;
+            	}
+            	
 
+            	/*Controlador del botón actualizar/insertar */
+            	
+            	var path = window.location.pathname;
+            	
+            	var split = path.split("/");
 
-        	
+            	if (split[4] == "new"){
 
+            	document.getElementById("uptton").style.display = "none";
+
+            	} else{
+            		
+            	document.getElementById("newtton").style.display = "none";
+
+            	}
+            	
+            	/*Controlador del botón actualizar/insertar */
         	
         	
         	

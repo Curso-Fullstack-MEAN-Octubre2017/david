@@ -1,139 +1,74 @@
-<style>
-
-body{
-background-color:lightyellow;
-}
-
-#grandfather{
-	width:100%;
-	margin:0 auto;
-
-}
-
-
-#son{
-	width:50%;
-	margin:0 auto;
-
-
-}
-
-#grandson{
-	width:40%;
-	margin:0 auto;
-
-
-}
-
-#grandson #butt{
-	width:60%;
-	margin:0 auto;
-
-}
-
-#grandson h1{
-	margin:0 auto;
-	width:45%;
-	padding-left:40px;
-	color:grey;
-
-
-
-}
-
-.list{
-	padding-top:10px;
-	padding-bottom:10px;
-	margin-left:30px;
-	border:2px solid blue;
-	background-color:lightblue;
-
-}
-
-.list li{
-	font-family:arial;
-
-
-}
-
-.list:active{
-background-color:cyan;
-}
-
-#butt button{
-margin-left:40px;
-background-color:skyblue;
-border-style:outset;
-border-color:blue;
-}
-
-#butt button:active{
-color:white;
-}
-
-.box{
-text-decoration:none;
-color:black;
-}
-
-#for{
-margin-left:28px;
-margin-top:10px;
-margin-bottom:10px;
-}
-
-
-</style>
 
 
 <div id="grandfather">
-<div id="son">
-<div id="grandson">
 
-<h1>Clientes</h1>
+	<div id="son">
+	
+		<div id="grandson">
 
-<form id="for">
+		<h1>Clientes</h1>
+
+		<form class="form-inline" role="form">
+
+			<input id="sea"  class="form-control" type="search"></input>
+			
+			<input type="submit" class="btn btn-default" value="Buscar"></input>
+
+		</form>
+
+		<table class="table table-bordered">
+		
+			<tr>
+			
+				<th>DNI</th>
+				
+				<th>Nombre</th>
+				
+				<th>Apellidos</th>
+				
+				<th>Tel&eacute;fono</th>
+				
+				<th>E-mail</th>
+				
+				<th>Notas</th>
+				
+			</tr>
+			
+			
+			<a ng-click="" ng-href="customers/{{row._id}}">
+
+			
+			<tr id="rows" ng-click="ref()" ng-repeat="row in customers">
+			
+
+			
+			<td>{{row.dni}}</td>
+			
+			<td>{{row.firstName}}</td>
+			
+			<td>{{row.lastName}}</td>
+		
+			<td>{{row.phone}}</td>
+			
+			<td>{{row.email}}</td>
+			
+			<td>{{row.note}}</td>
+			
+
+			
+			</tr>
+			
+			</a>
+			
+		</table>
 
 
-<input id="sea" type="search"></input>
-<input type="submit" value="Buscar"></input>
-
-</form>
-
-<ul class="list" ng-repeat="row in customers">
-<a class="box" ng-click="" ng-href="customers/{{row._id}}">
-<!--<li>ID: {{row._id}}</li>-->
-
-
-	<li><b>DNI:</b> {{row.dni}}</li>
-	<li><b>Nombre:</b> {{row.firstName}}</li>
-	<li><b>Apellidos:</b> {{row.lastName}}</li>
-	<li><b>Tel&eacute;fono:</b> {{row.phone}}</li>
-	<li><b>E-mail:</b> {{row.email}}</li>
-	<li><b>Notas:</b> {{row.note}}</li>
-
-	</a>
-
-</ul>
-<!--
-<ul class="list" ng-repeat="raw in pets">
-<a class="box" ng-href="customers/{{row._id}}">
-<li><b>Chip:</b>{{raw.chip}}</li>
-<li><b>Name:</b>{{raw.name}}</li>
-<li><b>Date of birth:</b>{{raw.date}}</li>
-<li><b>Photo:</b>{{raw.photo}}</li>
-<li><b>Breed:</b>{{raw.breed}}</li>
-<li><b>Race:</b>{{raw.race}}</li>
-<li><b>Description:</b>{{raw.description}}</li>
-<li><b>Owner:</b>{{raw.owner}}</li>
-</a>
-
-</ul>
--->
-
-<div id="butt"><a ng-href="customers/new"><button>Nuevo cliente</button></a></div>
-</div>
-</div>
+		<div id="butt"><a ng-href="customers/new"><button>Nuevo cliente</button></a></div>
+		
+		</div>
+		
+	</div>
+	
 </div>
 
 

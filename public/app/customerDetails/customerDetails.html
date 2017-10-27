@@ -1,144 +1,8 @@
-<style>
-
-body{
-background-color:lightyellow;
-}
-
-.table2{
-border:1px solid silver;
-width:80%;
-margin:0 auto;
-}
-
-.row1{
-border:1px solid silver;
-text-decoration:none;
-color:green;
-
-}
-
-.row2{
-border:1px solid silver;
-font-family:arial;
-
-}
-
-.row1 .row2{
-text-align:center;
-}
-
-.updateButton{
-margin-bottom:20px;
-margin-top:10px;
-
-}
-
-#contenedorPadre{
-width:30%;
-margin:0 auto;
-
-}
-
-.row1#animals:hover > .row2{
-background-color:lightgreen;
-}
-
-
-label{
-width:300px;
-}
-
-input{
-margin-top:10px;
-margin-bottom:5px;
-margin-left:100px;
-}
-
-button{
-width:150px;
-margin-left:60px;
-display:block;
-}
-
-.labels{
-float:left;
-clear:left;
-
-}
-
-.inputs{
-float:right;
-margin-left:-60px;
-margin-top:-10px;
-margin-right:110px;
-
-}
-
-.labels, .inputs{
-height:20px;
-margin-bottom:30px;
-}
-
-.title{
-width:50%;
-margin-left:38%;
-color:green;
-margin-bottom:25px;
-text-decoration:underline;
-
-}
-
-.title h2{
-
-}
-
-.newPet{
-width:100%;
-margin:0 auto;
-}
-
-.table2 { display:table; }
-.row1{ display:table-row; }
-.row2 { display:table-cell; }
-.row3{
-width:40%;
-margin:0 auto;
-padding-top:10px;
-letter-spacing:4px;
-color:green;
-text-decoration:underline;
-}
-
-#volver1{
-position: absolute;
-left: 100px;
-top: 150px;
-text-align:center;
-width:170px;
-background-color:tan;
-padding: 5px 5px 5px 5px;
-font-family:Arial;
-color:lightorange;
-border-radius: 15px;
-}
-
-
-#volver1 a{
-text-decoration:none;
-color:black;
-}
-
-
-
-</style>
-
-
-
-
-
 
 <div id="volver1">
-<a ng-href="/customers"><b>Volver a lista de clientes</b></a>
+
+	<a ng-href="/customers"><b>Volver a lista de clientes</b></a>
+	
 </div>
 
 
@@ -147,76 +11,86 @@ color:black;
 <div id="contenedorPadre">
 
 
-<div class="labels"><label><b>DNI:</b><label></div><div class="inputs"><input type="text" ng-model="customer.dni" ></div>
-<div class="labels"><label><b>Nombre:</b><label></div><div class="inputs"><input type="text" ng-model="customer.firstName" ></div>
-<div class="labels"><label><b>Apellidos:</b><label></div><div class="inputs"><input type="text" ng-model="customer.lastName" ></div>
-<div class="labels"><label><b>Tel&eacute;fono:</b><label></div><div class="inputs"><input type="text" ng-model="customer.phone" ></div>
-<div class="labels"><label><b>E-mail:</b><label></div><div class="inputs"><input type="text" ng-model="customer.email" ></div>
-<div class="labels"><label><b>Notas:</b><label></div><div class="inputs"><input type="text" ng-model="customer.note" ></div>
+	<div class="labels"><label><b>DNI:</b><label></div><div class="inputs"><input type="text" ng-model="customer.dni" maxlength="32"></div>
+	
+	<div class="labels"><label><b>Nombre:</b><label></div><div class="inputs"><input type="text" ng-model="customer.firstName" maxlength="32"></div>
+	
+	<div class="labels"><label><b>Apellidos:</b><label></div><div class="inputs"><input type="text" ng-model="customer.lastName" maxlength="32"></div>
+	
+	<div class="labels"><label><b>Tel&eacute;fono:</b><label></div><div class="inputs"><input type="text" ng-model="customer.phone" maxlength="32"></div>
+	
+	<div class="labels"><label><b>E-mail:</b><label></div><div class="inputs"><input type="text" ng-model="customer.email" maxlength="32"></div>
+	
+	<div class="labels"><label><b>Notas:</b><label></div><div class="inputs"><input type="text" ng-model="customer.note" maxlength=32></div>
 
-<!--
-<h2>Mascotas de {{customer.firstName}} {{customer.lastName}}</h2>
-
-
-<br>
- -->
  
-<script>
-
-if (window.location.href == "http://localhost:3000/customers/new"){
-document.getElementById("uptton").style.display = "none";
-
-} else{
-document.getElementById("newtton").style.display = "none";
-
-}
-
-</script>
  
- <div>
-<button ng-click="update()" class="updateButton" id="uptton">Actualizar</button>
-</div>
- <div>
-<button ng-click="save()" class="updateButton" id="newtton">Insertar</button>
+ 	<div>
+ 
+		<button ng-click="update()" class="updateButton" id="uptton">Actualizar</button>
+	
+	</div>
+
+
+	<div>
+
+		<button ng-click="save()" class="updateButton" id="newtton">Insertar</button>
+	
+	</div>
+
+
+	 <div>
+ 
+		<button ng-click="deleteCustomer()" class="updateButton" id="deltton">Borrar</button>
+	
+	</div>
+
+
 </div>
 
- <div>
-<button ng-click="deleteCustomer()" class="updateButton" id="deltton">Borrar</button>
-</div>
-<!--<button ng-click="save()">Nuevo</button>-->
-</div>
 
 <div class="table2">
 
-<div class="row1">
-<div class="row2"><b>Chip</b></div>
-<div class="row2"><b>Name</b></div>
-<div class="row2"><b>Date of birth</b></div>
-<div class="row2"><b>Photo</b></div>
-<div class="row2"><b>Breed</b></div>
-<div class="row2"><b>Race</b></div>
-<div class="row2"><b>Description</b></div>
-<div class="row2"><b>Owner</b></div>
-</div>
+	<div class="row1">
+	
+		<div class="row2"><b>Chip</b></div>
+	
+		<div class="row2"><b>Name</b></div>
+	
+		<div class="row2"><b>Date of birth</b></div>
+	
+		<div class="row2"><b>Photo</b></div>
+	
+		<div class="row2"><b>Breed</b></div>
+	
+		<div class="row2"><b>Race</b></div>
+	
+		<div class="row2"><b>Description</b></div>
+	
+		<div class="row2"><b>Owner</b></div>
+	
+	</div>
 
 
-<a id="animals" class="row1" ng-repeat="pets in pet" ng-href="customers/{{customer._id}}/pets/{{pets._id}}">
+	<a id="animals" class="row1" ng-repeat="pets in pet" ng-href="customers/{{customer._id}}/pets/{{pets._id}}">
 
-<div class="row2">{{pets.chip}}</div>
-<div class="row2">{{pets.name}}</div>
-<div class="row2">{{pets.date}}</div>
-<div class="row2">{{pets.photo}}</div>
-<div class="row2">{{pets.breed}}</div>
-<div class="row2">{{pets.race}}</div>
-<div class="row2">{{pets.description}}</div>
-<div class="row2">{{customer._id}}</div>
+		<div class="row2">{{pets.chip}}</div>
 
-<a>
+		<div class="row2">{{pets.name}}</div>
 
+		<div class="row2">{{pets.date}}</div>
 
+		<div class="row2">{{pets.photo}}</div>
 
+		<div class="row2">{{pets.breed}}</div>
 
+		<div class="row2">{{pets.race}}</div>
 
+		<div class="row2">{{pets.description}}</div>
+
+		<div class="row2">{{customer._id}}</div>
+
+	<a>
 
 </div>
 

@@ -5,20 +5,23 @@ angular.module('customerDetailsModule', []);
 angular.module('customerDetailsModule')
     .component('customerDetailsModule', {
         templateUrl:'/app/customerDetails/customerDetails.html',
-        controller: function($scope, $http, $routeParams, $location, $window) {
+        controller: function($scope, $http, $routeParams, $window) {
             console.log("Incializando customerDetails", $routeParams.id);
             
             $scope.customer = {};
+            
             $scope.pet = {};
             
-            var url = $location.path().split('/');
+
             
             $http.get("/api/customers/" + $routeParams.id).then(function(response){
             	
             	console.log("GET /api/customers/id response:", response.data);
             	
             	$scope.customer = response.data;
+            	
             });
+            
             
             $http.get("/api/customers/" + $routeParams.id + "/pets").then(function(response){
             	
@@ -34,6 +37,7 @@ angular.module('customerDetailsModule')
             
         	
         	$scope.update = function(){
+        		
         		if (window.confirm("Desea actualizar este cliente?")){
         			
     				console.log("Actualizando ", $scope.customer);
@@ -43,11 +47,17 @@ angular.module('customerDetailsModule')
     				$window.location.href="/customers/";
     				
             		$http.put("/api/customers/" + $routeParams.id, $scope.customer).then(
+            				
             				function(response) {
+            					
             					console.log("OK Response:", response);
+            					
             				},
+            				
             				function(response) {
+            					
             					console.log("KO Response:", response);
+            					
             				}
             		);	
         		}
@@ -57,6 +67,7 @@ angular.module('customerDetailsModule')
         	
         	
         	$scope.save = function(){
+        		
         		if (window.confirm("Desea insertar un nuevo cliente?")){
         			
     				console.log("Insertando ", $scope.customer);
@@ -66,12 +77,19 @@ angular.module('customerDetailsModule')
     				$window.location.href="/customers/";
 
             		$http.post("/api/customers/new", $scope.customer).then(
+            				
             				function(response) {
+            					
             					console.log("OK Response:", response);
+            					
             					$scope.customer = response.data;
+            					
             				},
+            				
             				function(response) {
+            					
             					console.log("KO Response:", response);
+            					
             				}
             		);
         		}
@@ -92,19 +110,39 @@ angular.module('customerDetailsModule')
     				
     				$window.location.href="/customers/";
     				
-    				$http.delete("/api/customers/" + url[2], $scope.customer).then(
+    				$http.delete("/api/customers/" + $routeParams.id, $scope.customer).then(
+    						
     						function(response){
+    							
             					console.log("KO Response:", response);
 
             				},
+            				
             				function(response) {
+            					
             					console.log("OK Response:", response);
+            					
             				}
             		);
         		}
 
         		
         	};   
+        	
+        	
+        	/*Controlador del botón actualizar/insertar */
+        	
+        	if (window.location.href == "http://localhost:3000/customers/new"){
+        		
+        		document.getElementById("uptton").style.display = "none";
+
+        		} else{
+        			
+        		document.getElementById("newtton").style.display = "none";
+
+        		}
+        	
+        	/*Controlador del botón actualizar/insertar */
         	
         	
         }

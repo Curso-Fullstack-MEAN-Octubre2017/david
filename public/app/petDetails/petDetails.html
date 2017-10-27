@@ -1,185 +1,57 @@
-<style>
-
-body{
-background-color:lightyellow;
-}
-
-.table2{
-border:1px solid silver;
-width:80%;
-margin:0 auto;
-}
-
-.row1{
-border:1px solid silver;
-text-decoration:none;
-color:green;
-
-}
-
-.row2{
-border:1px solid silver;
-font-family:arial;
-
-}
-
-.row1 .row2{
-text-align:center;
-}
-
-.updateButton{
-margin-bottom:20px;
-margin-top:10px;
-
-}
-
-#contenedorPadre{
-width:30%;
-margin:0 auto;
-
-}
-
-.row1#animals:hover > .row2{
-background-color:lightgreen;
-}
-
-
-label{
-width:300px;
-}
-
-input{
-margin-top:10px;
-margin-bottom:5px;
-margin-left:100px;
-}
-
-button{
-width:150px;
-margin-left:60px;
-display:block;
-}
-
-.labels{
-float:left;
-clear:left;
-
-}
-
-.inputs{
-float:right;
-margin-left:-60px;
-margin-top:-10px;
-margin-right:110px;
-
-}
-
-.labels, .inputs{
-height:20px;
-margin-bottom:30px;
-}
-
-.title{
-width:50%;
-margin-left:38%;
-color:green;
-margin-bottom:25px;
-text-decoration:underline;
-
-}
-
-.title h2{
-
-}
-
-.table2 { display:table; }
-.row1{ display:table-row; }
-.row2 { display:table-cell; }
-
-#volver1{
-position: absolute;
-left: 100px;
-top: 150px;
-}
-
-#volver2{
-position: absolute;
-left: 100px;
-top: 200px;
-}
-
-.volver{
-text-align:center;
-width:170px;
-background-color:tan;
-padding: 5px 5px 5px 5px;
-font-family:Arial;
-border-radius: 15px;
-
-}
-
-.volver a{
-text-decoration:none;
-color:black;
-}
-
-</style>
-
-
-
-
-
 
 <div id="volver1" class="volver">
-<a ng-href="/customers"><b>Volver a lista de clientes</b></a>
+
+	<a ng-href="/customers"><b>Volver a lista de clientes</b></a>
+
 </div>
+
+
 <div id="volver2" class="volver">
-<a ng-href="/customers/{{pet.owner}}"><b>Volver al due&ntilde;o de "{{pet.name}}"</b></a>
+
+	<a ng-href="/customers/{{pet.owner}}"><b>Volver al due&ntilde;o de "{{pet.name}}"</b></a>
+
 </div>
 
-
-
-<script>
-
-var path = window.location.pathname;
-var split = path.split("/");
-
-if (split[4] == "new"){
-
-document.getElementById("uptton").style.display = "none";
-
-} else{
-document.getElementById("newtton").style.display = "none";
-
-}
-
-</script>
 
 
 <div id="contenedorPadre">
 
 
-<div class="labels"><label><b>Chip:</b><label></div><div class="inputs"><input type="text" ng-model="pet.chip" ></div>
-<div class="labels"><label><b>Nombre:</b><label></div><div class="inputs"><input type="text" ng-model="pet.name" ></div>
-<div class="labels"><label><b>Fecha N.:</b><label></div><div class="inputs"><input type="text" ng-model="pet.date" ></div>
-<div class="labels"><label><b>Foto:</b><label></div><div class="inputs"><input type="text" ng-model="pet.photo" ></div>
-<div class="labels"><label><b>Especie:</b><label></div><div class="inputs"><input type="text" ng-model="pet.breed" ></div>
-<div class="labels"><label><b>Raza:</b><label></div><div class="inputs"><input type="text" ng-model="pet.race" ></div>
-<div class="labels"><label><b>Datos:</b><label></div><div class="inputs"><input type="text" ng-model="pet.description" ></div>
+	<div class="labels"><label><b>Chip:</b><label></div><div class="inputs"><input type="text" ng-model="pet.chip" ></div>
+
+	<div class="labels"><label><b>Nombre:</b><label></div><div class="inputs"><input type="text" ng-model="pet.name" ></div>
+
+	<div class="labels"><label><b>Fecha N.:</b><label></div><div class="inputs"><input type="text" ng-model="pet.date" ></div>
+
+	<div class="labels"><label><b>Foto:</b><label></div><div class="inputs"><input type="text" ng-model="pet.photo" ></div>
+
+	<div class="labels"><label><b>Especie:</b><label></div><div class="inputs"><input type="text" ng-model="pet.breed" ></div>
+
+	<div class="labels"><label><b>Raza:</b><label></div><div class="inputs"><input type="text" ng-model="pet.race" ></div>
+
+	<div class="labels"><label><b>Datos:</b><label></div><div class="inputs"><input type="text" ng-model="pet.description" ></div>
 
 
- 
- 
 
- <div>
-<button ng-click="updatePet()" class="updateButton" id="uptton">Actualizar</button>
-</div>
- <div>
-<button ng-click="savePet()" class="updateButton" id="newtton">Insertar</button>
-</div>
- <div>
-<button ng-click="deletePet()" class="updateButton" id="deltton">Borrar</button>
-</div>
+ 	<div>
+ 	
+		<button ng-click="updatePet()" ng-show="!isNew()" class="updateButton" id="uptton">Actualizar</button>
+	
+	</div>
+	
+	
+	 <div>
+	 
+		<button ng-click="savePet()" class="updateButton" id="newtton">Insertar</button>
+	
+	</div>
+	
+	
+	 <div>
+	 
+		<button ng-click="deletePet()" class="updateButton" id="deltton">Borrar</button>
+	
+	</div>
 
 
 

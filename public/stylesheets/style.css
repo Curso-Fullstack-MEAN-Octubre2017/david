@@ -1,8 +1,14 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+table{
+background-color: lightblue !important;
+text-align:center;
 }
 
-a {
-  color: #00B7FF;
+table th{
+background-color:skyblue !important;
+}
+
+table tr#rows:hover{
+background-color:royalblue !important;
+color:white;
+cursor: pointer;
 }
