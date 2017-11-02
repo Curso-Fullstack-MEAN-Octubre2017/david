@@ -9,12 +9,11 @@ module.exports = (router) => {
 		
 
 	
-	/* Sample REST service  (placeholder) */
+
 
 
 	router.get('/customers/:id/pets', function(req, res, next) {
-		//owner : "59e878351592760b9cdb7114"
-		//name : "animal"
+
 				var id = req.params.id;
 				Pet.find({owner: id},(err, pet) => {
 					

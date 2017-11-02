@@ -1,100 +1,109 @@
 
-<div id="volver1">
+<!--Cambio de css en directo-->
 
-	<a ng-href="/customers"><b>Volver a lista de clientes</b></a>
+<style parse-style>.css_class1 {margin-right: {{customer.note.length >= 30 ? "50%" : "0%"}};}</style>
+
+<style parse-style>.css_class2 {width: {{customer.note.length >= 30 ? "420%" : "100%"}};}</style>
+
+<style parse-style>.css_class3 {width: {{customer.note.length >= 30 ? "200%" : "100%"}};}</style>
+
+<!--Cambio de css en directo-->
+
+
+<h1 class="text-center title"> <u>Cliente: {{customer.firstName}} {{customer.lastName}}</u></h1>
+
+<div id="volver1" class="text-center">
+
+	<button class="btn btn-info absolute" id="volver1" ng-click="home()"><b>Volver a lista de clientes</b></button>
 	
 </div>
 
 
 
+<div class="center text-center">
 
-<div id="contenedorPadre">
 
 
-	<div class="labels"><label><b>DNI:</b><label></div><div class="inputs"><input type="text" ng-model="customer.dni" maxlength="32"></div>
+<form id="contenedorPadre" class="form-horizontal css_class1" role="form">
+
+
+	<div class="form-group"><label class="col-lg-5 control-label" for="dni"><h3>DNI:</h3></label><div class="col-lg-5 bah"><input type="text" ng-model="customer.dni" maxlength="10" class="form-control  css_class2" id="dni"></div></div>
 	
-	<div class="labels"><label><b>Nombre:</b><label></div><div class="inputs"><input type="text" ng-model="customer.firstName" maxlength="32"></div>
+	<div class="form-group"><label class="col-lg-5 control-label" for="name"><h3>Nombre:</h2></label><div class="col-lg-5 bah css_class2"><input type="text" ng-model="customer.firstName" maxlength="30" class="form-control  css_class2" id="name"></div></div>
 	
-	<div class="labels"><label><b>Apellidos:</b><label></div><div class="inputs"><input type="text" ng-model="customer.lastName" maxlength="32"></div>
+	<div class="form-group"><label class="col-lg-5 control-label" for="lastname"><h3>Apellidos:</h3></label><div class="col-lg-5 bah css_class2"><input type="text" ng-model="customer.lastName" maxlength="30" class="form-control  css_class2" id="lastname"></div></div>
 	
-	<div class="labels"><label><b>Tel&eacute;fono:</b><label></div><div class="inputs"><input type="text" ng-model="customer.phone" maxlength="32"></div>
+	<div class="form-group"><label class="col-lg-5 control-label" for="phone"><h3>Tel&eacute;fono:</h3></label><div class="col-lg-5 bah css_class2"><input type="text" ng-model="customer.phone" maxlength="12" class="form-control  css_class2" id="phone"></div></div>
 	
-	<div class="labels"><label><b>E-mail:</b><label></div><div class="inputs"><input type="text" ng-model="customer.email" maxlength="32"></div>
+	<div class="form-group"><label class="col-lg-5 control-label" for="email"><h3>E-mail:</h3></label><div class="col-lg-5 bah css_class2"><input type="text" ng-model="customer.email" maxlength="30" class="form-control  css_class2" id="email"></div></div>
 	
-	<div class="labels"><label><b>Notas:</b><label></div><div class="inputs"><input type="text" ng-model="customer.note" maxlength=32></div>
+	<div class="form-group"><label class="col-lg-5 control-label" for="notes"><h3>Notas:</h3></label><div class="col-lg-5 bah css_class2"><textarea type="text" ng-model="customer.note" class="form-control  css_class2 inputBreak textArea" id="note"></textarea></div></div>
 
  
  
- 	<div>
+	<div  class="buttons css_class3">
  
-		<button ng-click="update()" class="updateButton" id="uptton">Actualizar</button>
+	<div class="btn btn-primary btn-sm button" ng-click="update()" id="uptton">Actualizar</div>
+	
+	<div class="btn btn-primary btn-sm button" ng-click="save()" id="newtton">Insertar</div>
+	
+	<div class="btn btn-primary btn-sm button" ng-click="deleteCustomer()" id="deltton">Borrar</div>
 	
 	</div>
 
 
-	<div>
-
-		<button ng-click="save()" class="updateButton" id="newtton">Insertar</button>
-	
-	</div>
+</form>
 
 
-	 <div>
- 
-		<button ng-click="deleteCustomer()" class="updateButton" id="deltton">Borrar</button>
-	
-	</div>
+
 
 
 </div>
 
+<table class="table table-bordered">
 
-<div class="table2">
-
-	<div class="row1">
+	<tr class="row1">
 	
-		<div class="row2"><b>Chip</b></div>
+		<th class="row2"><b>Chip</b></div>
 	
-		<div class="row2"><b>Name</b></div>
+		<th class="row2"><b>Name</b></div>
 	
-		<div class="row2"><b>Date of birth</b></div>
+		<th class="row2"><b>Date of birth</b></div>
+		
+		<th class="row2"><b>Breed</b></div>
 	
-		<div class="row2"><b>Photo</b></div>
+		<th class="row2"><b>Race</b></div>
 	
-		<div class="row2"><b>Breed</b></div>
+		<th class="row2"><b>Description</b></div>
 	
-		<div class="row2"><b>Race</b></div>
+		<th class="row2"><b>Owner</b></div>
 	
-		<div class="row2"><b>Description</b></div>
-	
-		<div class="row2"><b>Owner</b></div>
-	
-	</div>
+	</tr>
 
 
-	<a id="animals" class="row1" ng-repeat="pets in pet" ng-href="customers/{{customer._id}}/pets/{{pets._id}}">
+	<tr id="animals" class="rows" ng-repeat="pets in pet" ng-click="refPet(pets._id)">
 
-		<div class="row2">{{pets.chip}}</div>
+		<td class="row2 align-middle">{{pets.chip}}</div>
 
-		<div class="row2">{{pets.name}}</div>
+		<td class="row2 align-middle">{{pets.name}}</div>
 
-		<div class="row2">{{pets.date}}</div>
+		<td class="row2 align-middle">{{pets.date}}</div>
 
-		<div class="row2">{{pets.photo}}</div>
+		<td class="row2 align-middle">{{pets.breed}}</div>
 
-		<div class="row2">{{pets.breed}}</div>
+		<td class="row2 align-middle">{{pets.race}}</div>
 
-		<div class="row2">{{pets.race}}</div>
+		<td class="row2 align-middle">{{pets.description}}</div>
 
-		<div class="row2">{{pets.description}}</div>
+		<td class="row2 align-middle">{{customer._id}}</div>
 
-		<div class="row2">{{customer._id}}</div>
+	</tr>
 
-	<a>
+</table>
 
+<div class="new" id="ir">
+<button class="btn btn-info" ng-click="newPet()"><b>Click aqu&iacute; para insertar una nueva mascota</b></button>
 </div>
 
-
-<div class="row3"><a ng-href="customers/{{customer._id}}/pets/new"><b>Click aqu&iacute; para insertar una nueva mascota</b></a></div>
 
 

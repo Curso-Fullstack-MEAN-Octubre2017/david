@@ -1,5 +1,30 @@
 'use strict';
 
+
+/* Cambio de css en directo
+
+var app = angular.module('app', []);
+
+app.directive('parseStyle', function($interpolate) {
+    return function(scope, elem) {
+        var exp = $interpolate(elem.html()),
+            watchFunc = function () { return exp(scope); };
+        
+        scope.$watch(watchFunc, function (html) {
+            elem.html(html);
+        });
+    };
+});
+
+app.controller('ctrl', function($scope) {
+    $scope.angular_variable = 'red';
+});
+
+   Cambio de css en directo */  
+
+
+
+
 angular.module('customersModule', []);
 
 angular.module('customersModule')
@@ -17,15 +42,35 @@ angular.module('customersModule')
             	$scope.customers = response.data;
             	
             });
+                    
             
-            $scope.myFunc = function() {
-            	$window.alert("hiii");
-            	console.log("tryiiinng");
+
+        
+            
+            
+            $scope.ref = function(id) {
+            	
+			$window.location.href="/customers/" + id;
+
             };
-
-
             
             
+            $scope.$watchCollection('searching', function() {
+            	var searchCriteria = {};
+            	searchCriteria.searchTerm = $scope.searching;
+
+
+                $http.get("/api/customers", {params: searchCriteria}).then(function(response){
+                	
+                	console.log(response.data);
+                	
+                	$scope.customers = response.data;
+                	
+                	});
+                });
+            
+
+           
         }
     });
 

@@ -126,6 +126,7 @@ angular.module('petDetailsModule')
             		return true;
             	}
             	
+            	
 
             	/*Controlador del botón actualizar/insertar */
             	
@@ -144,8 +145,24 @@ angular.module('petDetailsModule')
             	}
             	
             	/*Controlador del botón actualizar/insertar */
+            	
+            	
         	
         	
+                $scope.homeCustomer = function(){
+                	
+        			$window.location.href="/customers/" + $routeParams.id;
+                    	
+                };
+                
+                $scope.home = function(){
+                	
+        			$window.location.href="/customers/";
+                    	
+                };
+            	
+            	
+            	
         	
         }
     });

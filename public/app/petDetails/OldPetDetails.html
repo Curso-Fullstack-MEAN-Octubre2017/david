@@ -1,0 +1,59 @@
+
+<div id="volver1" class="volver">
+
+	<a ng-href="/customers"><b>Volver a lista de clientes</b></a>
+
+</div>
+
+
+<div id="volver2" class="volver">
+
+	<a ng-href="/customers/{{pet.owner}}"><b>Volver al due&ntilde;o de "{{pet.name}}"</b></a>
+
+</div>
+
+
+
+<div id="contenedorPadre">
+
+
+	<div class="labels"><label><b>Chip:</b><label></div><div class="inputs"><input type="text" ng-model="pet.chip" ></div>
+
+	<div class="labels"><label><b>Nombre:</b><label></div><div class="inputs"><input type="text" ng-model="pet.name" ></div>
+
+	<div class="labels"><label><b>Fecha N.:</b><label></div><div class="inputs"><input type="text" ng-model="pet.date" ></div>
+
+	<div class="labels"><label><b>Foto:</b><label></div><div class="inputs"><input type="text" ng-model="pet.photo" ></div>
+
+	<div class="labels"><label><b>Especie:</b><label></div><div class="inputs"><input type="text" ng-model="pet.breed" ></div>
+
+	<div class="labels"><label><b>Raza:</b><label></div><div class="inputs"><input type="text" ng-model="pet.race" ></div>
+
+	<div class="labels"><label><b>Datos:</b><label></div><div class="inputs"><input type="text" ng-model="pet.description" ></div>
+
+
+
+ 	<div>
+ 	
+		<button ng-click="updatePet()" ng-show="!isNew()" class="updateButton" id="uptton">Actualizar</button>
+	
+	</div>
+	
+	
+	 <div>
+	 
+		<button ng-click="savePet()" class="updateButton" id="newtton">Insertar</button>
+	
+	</div>
+	
+	
+	 <div>
+	 
+		<button ng-click="deletePet()" class="updateButton" id="deltton">Borrar</button>
+	
+	</div>
+
+
+
+</div>
+

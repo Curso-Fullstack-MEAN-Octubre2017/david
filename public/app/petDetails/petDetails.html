@@ -1,59 +1,71 @@
 
-<div id="volver1" class="volver">
+<!--Cambio de css en directo-->
 
-	<a ng-href="/customers"><b>Volver a lista de clientes</b></a>
+<style parse-style>.css_class1 {margin-right: {{pet.description.length >= 33 ? "50%" : "0%"}};}</style>
+
+<style parse-style>.css_class2 {width: {{pet.description.length >= 33 ? "420%" : "100%"}};}</style>
+
+<style parse-style>.css_class3 {width: {{pet.description.length >= 33 ? "200%" : "100%"}};}</style>
+
+<!--Cambio de css en directo-->
+
+
+
+<h1 class="text-center title"> <u>Mascota: {{pet.name}}</u></h1>
+
+<div id="volver1" class="text-center">
+
+	<button class="btn btn-info absolute" id="volver1" ng-click="home()"><b>Volver a lista de clientes</b></button>
+	
+</div>
+
+<div id="volver2" class="text-center">
+
+	<button class="btn btn-info absolute2" id="volver2" ng-click="homeCustomer()"><b>Volver al due&ntilde;o</b></button>
+	
+</div>
+
+
+
+<div class="center text-center">
+
+
+
+<form id="contenedorPadre" class="form-horizontal css_class1" role="form">
+
+
+	<div class="form-group"><label class="col-lg-6 control-label" for="chip"><h3>Chip:</h3></label><div class="col-lg-5 bah"><input type="text" ng-model="pet.chip" maxlength="17" class="form-control  css_class2" id="chip"></div></div>
+	
+	<div class="form-group"><label class="col-lg-6 control-label" for="name"><h3>Nombre:</h2></label><div class="col-lg-5 bah css_class2"><input type="text" ng-model="pet.name" maxlength="30" class="form-control  css_class2" id="name"></div></div>
+	
+	<div class="form-group"><label class="col-lg-6 control-label" for="date"><h3>Fecha N.:</h3></label><div class="col-lg-5 bah css_class2"><input type="text" ng-model="pet.date" maxlength="10" class="form-control  css_class2" id="date"></div></div>
+	
+	<div class="form-group"><label class="col-lg-6 control-label" for="breed"><h3>Especie:</h3></label><div class="col-lg-5 bah css_class2"><input type="text" ng-model="pet.breed" maxlength="20" class="form-control  css_class2" id="breed"></div></div>
+	
+	<div class="form-group"><label class="col-lg-6 control-label" for="race"><h3>Raza:</h3></label><div class="col-lg-5 bah css_class2"><input type="text" ng-model="pet.race" maxlength="20" class="form-control  css_class2" id="race"></div></div>
+	
+	<div class="form-group"><label class="col-lg-6 control-label" for="description"><h3>Datos:</h3></label><div class="col-lg-5 bah css_class2"><textarea type="text" ng-model="pet.description" class="form-control  css_class2 inputBreak textArea" id="description"></textarea></div></div>
+
+
+ 
+	<div  class="buttons css_class3">
+ 
+	<div class="btn btn-primary btn-sm button"  ng-click="updatePet()" id="uptton">Actualizar</div>
+	
+	<div class="btn btn-primary btn-sm button"  ng-click="savePet()" id="newtton">Insertar</div>
+	
+	<div class="btn btn-primary btn-sm button" ng-click="deletePet()" id="deltton">Borrar</div>
+	
+	</div>
+
+
+</form>
+
+
+
+
 
 </div>
 
 
-<div id="volver2" class="volver">
-
-	<a ng-href="/customers/{{pet.owner}}"><b>Volver al due&ntilde;o de "{{pet.name}}"</b></a>
-
-</div>
-
-
-
-<div id="contenedorPadre">
-
-
-	<div class="labels"><label><b>Chip:</b><label></div><div class="inputs"><input type="text" ng-model="pet.chip" ></div>
-
-	<div class="labels"><label><b>Nombre:</b><label></div><div class="inputs"><input type="text" ng-model="pet.name" ></div>
-
-	<div class="labels"><label><b>Fecha N.:</b><label></div><div class="inputs"><input type="text" ng-model="pet.date" ></div>
-
-	<div class="labels"><label><b>Foto:</b><label></div><div class="inputs"><input type="text" ng-model="pet.photo" ></div>
-
-	<div class="labels"><label><b>Especie:</b><label></div><div class="inputs"><input type="text" ng-model="pet.breed" ></div>
-
-	<div class="labels"><label><b>Raza:</b><label></div><div class="inputs"><input type="text" ng-model="pet.race" ></div>
-
-	<div class="labels"><label><b>Datos:</b><label></div><div class="inputs"><input type="text" ng-model="pet.description" ></div>
-
-
-
- 	<div>
- 	
-		<button ng-click="updatePet()" ng-show="!isNew()" class="updateButton" id="uptton">Actualizar</button>
-	
-	</div>
-	
-	
-	 <div>
-	 
-		<button ng-click="savePet()" class="updateButton" id="newtton">Insertar</button>
-	
-	</div>
-	
-	
-	 <div>
-	 
-		<button ng-click="deletePet()" class="updateButton" id="deltton">Borrar</button>
-	
-	</div>
-
-
-
-</div>
 

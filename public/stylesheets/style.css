@@ -1,14 +1,167 @@
+body{
+background-color:lightCyan !important;
+}
+
 table{
 background-color: lightblue !important;
 text-align:center;
+table-layout: fixed;
 }
 
 table th{
 background-color:skyblue !important;
 }
 
-table tr#rows:hover{
+table tr.rows:hover{
 background-color:royalblue !important;
 color:white;
 cursor: pointer;
 }
+
+table td{
+word-wrap: break-word;
+}
+
+
+.row2{
+clear:both;
+}
+
+#volver1,#volver2 :hover{
+cursor:pointer;
+}
+
+#ir :hover{
+cursor:pointer;
+	
+}
+
+#volver1{
+margin-bottom:5px;
+margin-top:5px;
+}
+
+.form-control{
+text-align:center;
+}
+
+.col-lg-5{
+text-align:center;
+}
+
+#ir{
+margin-bottom:10px;
+}
+
+.center{
+margin:0 auto;
+width:50%;
+border:1px solid silver;
+background-color:#AFDCEC;
+margin-top:30px;
+margin-bottom:30px;
+padding-top:30px;
+padding-right:50px;
+
+}
+
+.form-group{
+
+}
+
+.bah{
+width:100%;
+margin:0 auto;
+float:right;
+
+}
+
+.absolute{
+  position: absolute;
+  top: 250px; 
+  left: 75px;
+  height:50px;
+}
+
+.absolute2{
+  position: absolute;
+  top: 350px; 
+  left: 75px;
+  height:50px;
+}
+
+.buttons{
+width:50%;
+margin:0 auto;
+margin-bottom:50px;
+
+}
+
+.search{
+width:20%;
+margin:0 auto;
+margin-bottom:30px;
+margin-top:30px;
+}
+
+.searching{
+border:1px solid silver;
+width:50%;
+margin:0 auto;
+}
+
+
+.new{
+width:25%;
+margin:0 auto;
+
+}
+
+.button:hover{
+cursor:pointer;
+}
+
+.button{
+width:100px;
+margin-left:10px;
+margin-top:20px;
+}
+
+.padding{
+width:200px;
+}
+
+.title{
+color: #2B65EC;
+font-style: italic;
+margin-top:10px;
+}
+
+
+#butt :hover{
+cursor:pointer;
+}
+
+.far{
+width:80px;
+margin-left:10px;
+}
+
+
+.textArea{
+resize:none;
+}
+
+#home{
+position: absolute;
+margin:0 auto;
+left: 0;
+right: 0;
+top:2%;
+width: 1024px;
+height: 768px;
+opacity: 0.8;
+filter: alpha(opacity=80); /* IE8 and earlier */
+}
+
+

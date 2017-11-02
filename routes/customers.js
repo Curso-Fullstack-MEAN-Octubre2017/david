@@ -3,9 +3,15 @@ const Pet = require('../models/pet');
 
 module.exports = (router) => {
 
-	/* Sample REST service  (placeholder) */
+
+	
 	router.get('/customers', function(req, res, next) {
-		Customer.find({}, (err, customers) => {
+		var searchCriteria = {};
+		if(req.query.searchTerm) {
+			searchCriteria.dni = req.query.searchTerm;
+		}
+		console.log("Customer searchCriteria", searchCriteria);
+		Customer.find(searchCriteria, (err, customers) => {
 			if (err) {
 				res.send(err);
 			} else {
@@ -15,8 +21,13 @@ module.exports = (router) => {
 			'_id' : -1
 		});
 	});
+	
+	
+	
 
 	router.get('/customers/:id', function(req, res, next) {
+		
+		
 		var id = req.params.id;
 		Customer.findById(id, (err, customer) => {
 			if (err) {

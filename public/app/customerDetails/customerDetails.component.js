@@ -145,6 +145,25 @@ angular.module('customerDetailsModule')
         	/*Controlador del botón actualizar/insertar */
         	
         	
+            $scope.refPet = function(pet){
+            	
+    			$window.location.href="/customers/" + $routeParams.id + "/pets/" + pet;
+                	
+            };
+            
+            $scope.home = function(){
+            	
+    			$window.location.href="/customers/";
+                	
+            };
+            
+            $scope.newPet = function(){
+            	
+    			$window.location.href="/customers/" + $routeParams.id + "/pets/new";
+                	
+            };
+        	
+        	
         }
     });
 

@@ -1,4 +1,10 @@
 
+<!--Cambio de css en directo-->
+
+<!-- <style parse-style>.css_class {width: {{searching.length >= 23 ? "35%" : "20%"}}}</style> -->
+
+<!--Cambio de css en directo-->
+
 
 <div id="grandfather">
 
@@ -6,20 +12,21 @@
 	
 		<div id="grandson">
 
-		<h1>Clientes</h1>
+		<h1 class="text-center title">Clientes</h1>
+		
 
+		<div class="search css_class">
+		
 		<form class="form-inline" role="form">
 
-			<input id="sea"  class="form-control" type="search"></input>
-			
-			<input type="submit" class="btn btn-default" value="Buscar"></input>
-
+		<input id="sea" class="form-control inputSearch col-lg-12" type="search" ng-model="searching" maxlength="10" placeholder="Buscar cliente por DNI"></input>
+	
 		</form>
+		
+		</div>
 
 		<table class="table table-bordered">
-		
 			<tr>
-			
 				<th>DNI</th>
 				
 				<th>Nombre</th>
@@ -31,28 +38,28 @@
 				<th>E-mail</th>
 				
 				<th>Notas</th>
-				
 			</tr>
 			
 			
 			<a ng-click="" ng-href="customers/{{row._id}}">
 
 			
-			<tr id="rows" ng-click="ref()" ng-repeat="row in customers">
+			
+			<tr class="rows" ng-click="ref(row._id)" ng-repeat="row in customers">
 			
 
 			
-			<td>{{row.dni}}</td>
+			<td class="align-middle">{{row.dni}}</td>
 			
-			<td>{{row.firstName}}</td>
+			<td class="align-middle">{{row.firstName}}</td>
 			
-			<td>{{row.lastName}}</td>
+			<td class="align-middle">{{row.lastName}}</td>
 		
-			<td>{{row.phone}}</td>
+			<td class="align-middle">{{row.phone}}</td>
 			
-			<td>{{row.email}}</td>
+			<td class="align-middle">{{row.email}}</td>
 			
-			<td>{{row.note}}</td>
+			<td class="align-middle">{{row.note}}</td>
 			
 
 			
@@ -63,7 +70,7 @@
 		</table>
 
 
-		<div id="butt"><a ng-href="customers/new"><button>Nuevo cliente</button></a></div>
+		<div id="butt" class="text-center"><a ng-href="customers/new"><button class="btn btn-info padding">Nuevo cliente</button></a></div>
 		
 		</div>
 		
