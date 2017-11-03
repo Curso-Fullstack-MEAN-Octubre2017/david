@@ -122,9 +122,7 @@ angular.module('petDetailsModule')
             		
             	};   
             	
-            	$scope.isNew = function() {
-            		return true;
-            	}
+
             	
             	
 
@@ -147,7 +145,7 @@ angular.module('petDetailsModule')
             	/*Controlador del botón actualizar/insertar */
             	
             	
-        	
+                /*Redirecciones*/
         	
                 $scope.homeCustomer = function(){
                 	
@@ -160,6 +158,8 @@ angular.module('petDetailsModule')
         			$window.location.href="/customers/";
                     	
                 };
+                
+                /*Redirecciones*/
             	
             	
             	

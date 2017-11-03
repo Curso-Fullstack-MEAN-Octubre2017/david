@@ -60,50 +60,12 @@
 
 </div>
 
-<table class="table table-bordered">
-
-	<tr class="row1">
-	
-		<th class="row2"><b>Chip</b></div>
-	
-		<th class="row2"><b>Name</b></div>
-	
-		<th class="row2"><b>Date of birth</b></div>
-		
-		<th class="row2"><b>Breed</b></div>
-	
-		<th class="row2"><b>Race</b></div>
-	
-		<th class="row2"><b>Description</b></div>
-	
-		<th class="row2"><b>Owner</b></div>
-	
-	</tr>
-
-
-	<tr id="animals" class="rows" ng-repeat="pets in pet" ng-click="refPet(pets._id)">
-
-		<td class="row2 align-middle">{{pets.chip}}</div>
-
-		<td class="row2 align-middle">{{pets.name}}</div>
-
-		<td class="row2 align-middle">{{pets.date}}</div>
-
-		<td class="row2 align-middle">{{pets.breed}}</div>
-
-		<td class="row2 align-middle">{{pets.race}}</div>
-
-		<td class="row2 align-middle">{{pets.description}}</div>
-
-		<td class="row2 align-middle">{{customer._id}}</div>
-
-	</tr>
-
-</table>
-
 <div class="new" id="ir">
-<button class="btn btn-info" ng-click="newPet()"><b>Click aqu&iacute; para insertar una nueva mascota</b></button>
+<button class="btn btn-info" ng-show="entrar" ng-click="viewPet()"><b>Click aqu&iacute; para mostrar las mascotas de {{customer.firstName}} {{customer.lastName}}</b></button>
 </div>
 
+<div class="new" id="ir">
+<button class="btn btn-info" ng-show="salir" ng-click="viewPetShow()"><b>Click aqu&iacute; para esconder las mascotas de {{customer.firstName}} {{customer.lastName}}</b></button>
+</div>
 
-
+<hola></hola>

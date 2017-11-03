@@ -1,7 +1,7 @@
 'use strict';
 
 
-/* Cambio de css en directo
+//Cambio css en directo
 
 var app = angular.module('app', []);
 
@@ -20,7 +20,7 @@ app.controller('ctrl', function($scope) {
     $scope.angular_variable = 'red';
 });
 
-   Cambio de css en directo */  
+//Cambio css en directo
 
 
 

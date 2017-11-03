@@ -1,5 +1,7 @@
 'use strict';
 
+
+
 angular.module('customerDetailsModule', []);
 
 angular.module('customerDetailsModule')
@@ -11,7 +13,10 @@ angular.module('customerDetailsModule')
             $scope.customer = {};
             
             $scope.pet = {};
+
+            $scope.entrar=true;
             
+            $scope.salir=false;
 
             
             $http.get("/api/customers/" + $routeParams.id).then(function(response){
@@ -145,6 +150,10 @@ angular.module('customerDetailsModule')
         	/*Controlador del botón actualizar/insertar */
         	
         	
+        	
+        	
+            /*Redirecciones*/
+        	
             $scope.refPet = function(pet){
             	
     			$window.location.href="/customers/" + $routeParams.id + "/pets/" + pet;
@@ -162,9 +171,55 @@ angular.module('customerDetailsModule')
     			$window.location.href="/customers/" + $routeParams.id + "/pets/new";
                 	
             };
+            
         	
+            /*Redirecciones*/
+            
+            
+            
+            /*Mostrar tabla y mostrar el otro boton*/
+            
+            $scope.viewPet = function(){
+            	$scope.activar=true;
+            	$scope.desactivar=false;
+            	$scope.entrar=false;
+            	$scope.salir=true;
+            };
+            
+            /*Mostrar tabla y mostrar el otro boton*/
+            
+            
+            
+            /*Ocultar tabla y mostrar el boton original*/
+            
+            $scope.viewPetShow = function(){
+            	$scope.activar=false;
+            	$scope.desactivar=true;
+            	$scope.entrar=true;
+            	$scope.salir=false;
+            };
+            
+            /*Directiva de mascotas*/
         	
         }
     });
+
+
+
+/*Directiva de mascotas*/
+
+
+	angular.module('customerDetailsModule').directive('hola', function() {
+		  return {
+		    restrict: 'E',
+		    templateUrl: './app/directives/table.html'
+		  }
+		});
+
+
+
+
+
+/*Directiva de mascotas*/
 
     
