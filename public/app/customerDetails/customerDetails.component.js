@@ -156,7 +156,7 @@ angular.module('customerDetailsModule')
         	
             $scope.refPet = function(pet){
             	
-    			$window.location.href="/customers/" + $routeParams.id + "/pets/" + pet;
+    			$window.location.href="/customers/" + $routeParams.id + "/pets/new";
                 	
             };
             
